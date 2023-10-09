@@ -1,3 +1,4 @@
+import 'package:dailydo/Functions/todo_functions.dart';
 import 'package:dailydo/misc/pallete.dart';
 import 'package:dailydo/widgets/searchbar.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: status == true ? TextDecoration.lineThrough : TextDecoration.none
                   ),
                   ),
-                  subtitle: Text('12 jun 23'),
                   trailing: Icon(Icons.delete)
                 ),
               );
@@ -55,6 +55,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         )
       ]),
+      floatingActionButton: FloatingActionButton(
+        onPressed: ()
+        {
+          TodoFunctions.instance.clearList();
+        }, child: const Icon(Icons.add, color: Pallete.blackColor),backgroundColor: Pallete.appBarColor),
     );
   }
 }
